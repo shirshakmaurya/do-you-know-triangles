@@ -22,4 +22,3 @@ function isTriangle(){
 }
 
 checkTriangleBtn.addEventListener("click",isTriangle);
-console.log(inputs) 

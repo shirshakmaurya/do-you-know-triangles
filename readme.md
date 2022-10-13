@@ -6,3 +6,5 @@ In this we have app to check whether the given angles forms a triangle or not, w
 - HTML
 - CSS
 - JS
+
+## Hosted on netlify

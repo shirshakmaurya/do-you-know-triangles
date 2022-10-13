@@ -10,12 +10,29 @@ function calculateSumOfSquares(l1,l2){
 function calculateHypotenuse(){
     if(sideInputs[0].value >=0 || sideInputs[1].value >=0){
     const sumOfSquares = calculateSumOfSquares(Number(sideInputs[0].value),Number(sideInputs[1].value))
-    const lengthOfHypotenuse = Math.sqrt(sumOfSquares)
-    output.innerText = ("The length of hypotenuse is : "+ lengthOfHypotenuse)
+    var lengthOfHypotenuse = Math.sqrt(sumOfSquares)
+    lengthOfHypotenuse = lengthOfHypotenuse.toFixed("2")
+    showOutput("The length of hypotenuse is : "+ lengthOfHypotenuse)
     }
     else{
-        output.innerText = ("Please enter the sides correctly")
+        showOutput("Please enter the sides correctly")
     }
 }
 
-calculateHypotenuseButton.addEventListener("click", calculateHypotenuse)
+function showOutput(str){
+    output.innerText = str
+}
+
+function clickHandler(){
+    if(sideInputs[0].value==="" || sideInputs[1].value === ""){
+        showOutput("Enter in all the input fields")
+    }
+    else if(sideInputs[0].value<=0 || sideInputs[1]<=0){
+        showOutput("The values should be greater than 0")
+    }
+    else{
+        calculateHypotenuse()
+    }
+}
+
+calculateHypotenuseButton.addEventListener("click", clickHandler)

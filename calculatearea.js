@@ -6,8 +6,26 @@ const output = document.querySelector("#output")
 
 function calculateArea(){
     
-    const area = 1/2*(Number(base.value)*Number(height.value))
-    output.innerText = "The area of the triangle is : " + area;
+    var area = 1/2*(Number(base.value)*Number(height.value))
+    area = area.toFixed("2")
+    showOutput("The area of the triangle is : " + area);
 }
 
-calculateAreaButton.addEventListener("click",calculateArea)
+
+function showOutput(str){
+    output.innerText = str
+}
+
+function clickHandler(){
+    if(base.value === "" || height.value ===""){
+        showOutput("Please enter in all the input fields")
+    }
+    else if(base.value<=0 || height.value<=0){
+        showOutput("Invalid values!. The values should be positive and greater than 0")
+    }
+
+    else{
+        calculateArea();
+    }
+}
+calculateAreaButton.addEventListener("click",clickHandler)

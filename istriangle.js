@@ -13,12 +13,28 @@ function isTriangle(){
     
     const sumOfAngles = calculateSumOfAngles(Number(inputs[0].value),Number(inputs[1].value),Number(inputs[2].value))
     if(sumOfAngles === 180){
-        output.innerText = "The angles provided forms a triangle"
+       showOutput("The angles provided forms a triangle")
     }
     else{
-        output.innerText = "No, The angles provided doesn't form a triangle"
+        showOutput("No, The angles provided doesn't form a triangle")
     }
 
 }
 
-checkTriangleBtn.addEventListener("click",isTriangle);
+function showOutput(str){
+    output.innerText = str
+}
+
+function clickHandler(){
+    if(inputs[0].value ==="" || inputs[1].value==="" ||inputs[2].value===""){
+        showOutput("Please enter in all the fields")
+    }
+    else if(inputs[0].value <0 || inputs[1].value<0 ||inputs[2].value<0){
+        showOutput("Values cannot be negative")
+    }
+    else{
+        isTriangle()
+    }
+}
+
+checkTriangleBtn.addEventListener("click",clickHandler);
